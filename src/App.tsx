@@ -54,13 +54,6 @@ function App() {
       </header>
       <body>
         <Form />
-        <hr />
-        <hr />
-        <hr />
-        <hr />
-        <hr />
-        <hr />
-        <hr />
       </body>
     </div>
   );
