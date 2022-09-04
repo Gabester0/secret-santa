@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
+import { Form } from './features/form';
 import './App.css';
 
 function App() {
@@ -51,6 +52,16 @@ function App() {
           </a>
         </span>
       </header>
+      <body>
+        <Form />
+        <hr />
+        <hr />
+        <hr />
+        <hr />
+        <hr />
+        <hr />
+        <hr />
+      </body>
     </div>
   );
 }
