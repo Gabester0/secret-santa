@@ -1,21 +1,65 @@
-import React from 'react';
-import { setValue, selectValue } from './formSlice';
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import { FormWrapper } from './styled';
+import React, { useState, useEffect } from "react";
+import {
+  setName,
+  selectName,
+  setEmail,
+  selectEmail,
+  addWishlistItem,
+  removeWishlistItem,
+  selectWishlist,
+} from "./formSlice";
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { FormWrapper } from "./styled";
 
 export const Form = () => {
-    const value = useAppSelector(selectValue);
-    const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
+  const name = useAppSelector(selectName);
+  const email = useAppSelector(selectEmail);
+  const wishlist = useAppSelector(selectWishlist);
+  const [wishlistItem, setWishlistItem] = useState<string>("");
 
-    return (
-        <FormWrapper>
-            <label>Name</label>
-            <input 
-                type="text"
-                value={value}
-                onChange={(e) => dispatch(setValue(e.target.value))}
-                placeholder="Jo jo"
-            />
-        </FormWrapper>
-    )
-}
+  useEffect(() => {
+    setWishlistItem('');
+  }, [wishlist])
+  return (
+    <FormWrapper>
+      <label>Name</label>
+      <input
+        type="text"
+        placeholder="Jo jo"
+        value={name}
+        onChange={(e) => dispatch(setName(e.target.value))}
+      />
+
+      <label>Email</label>
+      <input
+        type="text"
+        placeholder="jojo@gmail.com"
+        value={email}
+        onChange={(e) => dispatch(setEmail(e.target.value))}
+      />
+
+      <label>Wishlist</label>
+      <input
+        type="text"
+        placeholder="www.amazon.com/cool-item-you-want"
+        value={wishlistItem}
+        onChange={(e) => setWishlistItem(e.target.value)}
+      />
+      <button
+        onClick={() => dispatch(addWishlistItem(wishlistItem))}
+      >
+        Add Item
+      </button>
+      <h4>Your Wishlist:</h4>
+      <ul>
+        {wishlist.map((item, index) => (
+            <li key={`${index}-${item}`}>
+                {item}
+                <button onClick={() => dispatch(removeWishlistItem(index))}>X</button>
+            </li>)
+        )}
+      </ul>
+    </FormWrapper>
+  );
+};
