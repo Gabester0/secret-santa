@@ -26,8 +26,8 @@ export const formSlice = createSlice({
     addWishlistItem: (state, action: PayloadAction<string>) => {
       state.wishList.push(action.payload);
     },
-    removeWishlistItem: (state, action: PayloadAction<number>) => {
-      state.wishList.filter((item, index) => index !== action.payload);
+    removeWishlistItem: (state, action) => {
+      state.wishList = state.wishList.filter((item, index) => index !== action.payload);
     },
   },
 });

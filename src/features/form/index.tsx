@@ -20,7 +20,8 @@ export const Form = () => {
 
   useEffect(() => {
     setWishlistItem('');
-  }, [wishlist])
+  }, [wishlist]);
+
   return (
     <FormWrapper>
       <label>Name</label>
