@@ -22,6 +22,12 @@ export const Form = () => {
     setWishlistItem('');
   }, [wishlist]);
 
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if(e.key === 'Enter'){
+        dispatch(addWishlistItem(wishlistItem))
+    }
+  }
+
   return (
     <FormWrapper>
       <label>Name</label>
@@ -46,6 +52,7 @@ export const Form = () => {
         placeholder="www.amazon.com/cool-item-you-want"
         value={wishlistItem}
         onChange={(e) => setWishlistItem(e.target.value)}
+        onKeyDown={(e) => handleKeyPress(e)}
       />
       <button
         onClick={() => dispatch(addWishlistItem(wishlistItem))}
