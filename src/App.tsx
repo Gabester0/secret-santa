@@ -8,7 +8,6 @@ import "./App.css";
 
 function App() {
   const { loginWithRedirect } = useAuth0();
-  console.log(process.env.REACT_APP_CLIENT_ID);
   return (
     <div className="App">
       <button onClick={() => loginWithRedirect()}>Log In</button>
