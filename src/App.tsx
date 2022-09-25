@@ -9,24 +9,20 @@ function App() {
   const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
     useAuth0();
   return (
-    <div>
-      <div className="App">
-        {!isAuthenticated && (
-          <button onClick={() => loginWithRedirect()}>Log In</button>
-        )}
-        {isAuthenticated && !isLoading && (
-          <>
-            <button
-              onClick={() => logout({ returnTo: window.location.origin })}
-            >
-              Log Out
-            </button>
-            <p>{user?.email}</p>
-            <h1>Register and add your wishlist</h1>
-            <Form />
-          </>
-        )}
-      </div>
+    <div className="App">
+      {!isAuthenticated && (
+        <button onClick={() => loginWithRedirect()}>Log In</button>
+      )}
+      {isAuthenticated && !isLoading && (
+        <>
+          <button onClick={() => logout({ returnTo: window.location.origin })}>
+            Log Out
+          </button>
+          <p>{user?.email}</p>
+          <h1>Register and add your wishlist</h1>
+          <Form />
+        </>
+      )}
     </div>
   );
 }
