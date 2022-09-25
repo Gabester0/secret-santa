@@ -1,14 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import { Counter } from "./features/counter/Counter";
+import { Form } from "./features/form";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
+      {/* <header className="App-header"> */}
+      {/* <img src={logo} className="App-logo" alt="logo" /> */}
+      {/*<Counter />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -49,8 +50,12 @@ function App() {
           >
             React Redux
           </a>
-        </span>
-      </header>
+        </span> */}
+      {/* </header> */}
+      <body>
+        <h1>Register and add your wishlist</h1>
+        <Form />
+      </body>
     </div>
   );
 }
