@@ -2,11 +2,16 @@ import React from "react";
 import logo from "./logo.svg";
 import { Counter } from "./features/counter/Counter";
 import { Form } from "./features/form";
+import { useAuth0 } from "@auth0/auth0-react";
 import "./App.css";
 
+
 function App() {
+  const { loginWithRedirect } = useAuth0();
+  console.log(process.env.REACT_APP_CLIENT_ID);
   return (
     <div className="App">
+      <button onClick={() => loginWithRedirect()}>Log In</button>
       {/* <header className="App-header"> */}
       {/* <img src={logo} className="App-logo" alt="logo" /> */}
       {/*<Counter />
