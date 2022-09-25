@@ -6,64 +6,27 @@ import { useAuth0 } from "@auth0/auth0-react";
 import "./App.css";
 
 function App() {
-  const { loginWithRedirect, user, isAuthenticated, logout } = useAuth0();
+  const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
+    useAuth0();
   return (
-    <div className="App">
-      {!isAuthenticated && (
-        <button onClick={() => loginWithRedirect()}>Log In</button>
-      )}
-      {isAuthenticated && (
-        <button onClick={() => logout({ returnTo: window.location.origin })}>Log Out</button>
-      )}
-      {/* <header className="App-header"> */}
-      {/* <img src={logo} className="App-logo" alt="logo" /> */}
-      {/*<Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span> */}
-      {/* </header> */}
-      <body>
-        <h1>Register and add your wishlist</h1>
-        <Form />
-      </body>
+    <div>
+      <div className="App">
+        {!isAuthenticated && (
+          <button onClick={() => loginWithRedirect()}>Log In</button>
+        )}
+        {isAuthenticated && !isLoading && (
+          <>
+            <button
+              onClick={() => logout({ returnTo: window.location.origin })}
+            >
+              Log Out
+            </button>
+            <p>{user?.email}</p>
+            <h1>Register and add your wishlist</h1>
+            <Form />
+          </>
+        )}
+      </div>
     </div>
   );
 }
