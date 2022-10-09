@@ -21,18 +21,20 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <Error />,
-  },
-  {
-    path: '/create',
-    element: <Create />,
-  },
-  {
-    path: '/find',
-    element: <Find />,
-  },
-  {
-    path: '/exchange/:exchangeId',
-    element: <Exchange />,
+    children: [
+      {
+        path: '/create',
+        element: <Create />,
+      },
+      {
+        path: '/find',
+        element: <Find />,
+      },
+      {
+        path: '/exchange/:exchangeId',
+        element: <Exchange />,
+      },
+    ]
   },
 ]);
 
