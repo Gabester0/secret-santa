@@ -9,6 +9,8 @@ import App from "./Home/App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import { Create } from "./Create/Create";
+import { Find } from "./Find/Find";
+import { Exchange } from "./Exchange/Exchange";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -21,7 +23,15 @@ const router = createBrowserRouter([
   {
     path: '/create',
     element: <Create />,
-  }
+  },
+  {
+    path: '/find',
+    element: <Find />,
+  },
+  {
+    path: '/exchange',
+    element: <Exchange />,
+  },
 ]);
 
 root.render(
