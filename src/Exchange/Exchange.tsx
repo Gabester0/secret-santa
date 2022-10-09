@@ -7,7 +7,7 @@ export const Exchange = () => {
     <>
     <div>
       <p>{user?.email}</p>
-      <h1>Manage exchange XYZ</h1>
+      <h1>Manage XYZ gift exchange</h1>
     </div>
     <a href="/">Home</a>
     </>

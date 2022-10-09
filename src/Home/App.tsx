@@ -8,6 +8,8 @@ import "./App.css";
 function App() {
   const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
     useAuth0();
+  
+  const tempExchangeId = `xyz`;
   return (
     <div className="App">
       {!isAuthenticated && (
@@ -22,7 +24,7 @@ function App() {
           <div>
             <p>Your gift exchanges:</p>
             {/* Map exchanges out as ul of a tags */}
-            <a href={`exchange`}>Exchange xyz</a>
+            <a href={`exchange/${tempExchangeId}`}>Exchange xyz</a>
           </div>
           <div>
             <p>Join an exchange:</p>

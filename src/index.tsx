@@ -11,6 +11,7 @@ import "./index.css";
 import { Create } from "./Create/Create";
 import { Find } from "./Find/Find";
 import { Exchange } from "./Exchange/Exchange";
+import Error from "./Error/Error";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
   },
   {
     path: '/create',
@@ -29,7 +31,7 @@ const router = createBrowserRouter([
     element: <Find />,
   },
   {
-    path: '/exchange',
+    path: '/exchange/:exchangeId',
     element: <Exchange />,
   },
 ]);
