@@ -4,6 +4,7 @@ import { Counter } from "../features/counter/Counter";
 import { Form } from "../Create/form";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./App.css";
+import { Link } from "react-router-dom";
 
 function App() {
   const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
@@ -24,15 +25,15 @@ function App() {
           <div>
             <p>Your gift exchanges:</p>
             {/* Map exchanges out as ul of a tags */}
-            <a href={`exchange/${tempExchangeId}`}>Exchange xyz</a>
+            <Link to={`exchange/${tempExchangeId}`}>Exchange xyz</Link>
           </div>
           <div>
             <p>Join an exchange:</p>
-            <a href={`find`}>Find</a>
+            <Link to={`find`}>Find</Link>
           </div>
           <div>
             <p>Create a gift exchange:</p>
-            <a href={`create`}>Create</a>
+            <Link to={`create`}>Create</Link>
           </div>
         </>
       )}
