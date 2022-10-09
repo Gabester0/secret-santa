@@ -8,6 +8,7 @@ import { store } from "./app/store";
 import App from "./Home/App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
+import { Create } from "./Create/Create";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
   },
+  {
+    path: '/create',
+    element: <Create />,
+  }
 ]);
 
 root.render(
