@@ -5,7 +5,7 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 
 import { store } from "./app/store";
-import App from "./Home/App";
+import Root from "./Root/Root";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import { Create } from "./Create/Create";
@@ -19,7 +19,7 @@ const root = createRoot(container);
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Root />,
     errorElement: <Error />,
     children: [
       {

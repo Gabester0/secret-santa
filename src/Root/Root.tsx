@@ -6,7 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { RootWrapper, Sidebar, Content } from "./styled";
 import { Link, Outlet } from "react-router-dom";
 
-function App() {
+function Root() {
   const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
     useAuth0();
 
@@ -53,4 +53,4 @@ function App() {
   );
 }
 
-export default App;
+export default Root;
