@@ -1,14 +1,20 @@
-import React from "react";
-import logo from "./logo.svg";
-import { Counter } from "../features/counter/Counter";
-import { Form } from "../Create/form";
+import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { RootWrapper, Sidebar, Content } from "./styled";
 import { Link, Outlet } from "react-router-dom";
+import axios from "axios";
 
 function Root() {
   const { loginWithRedirect, user, isAuthenticated, isLoading, logout } =
     useAuth0();
+
+  useEffect(() => {
+    axios.get('http://localhost:3001').then((response) => {
+      console.log({response});
+    }).catch((error)=> {
+      console.log({error})
+    })
+  }, []);
 
   const tempExchangeId = `xyz`;
   return (
